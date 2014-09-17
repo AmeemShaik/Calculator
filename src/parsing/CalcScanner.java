@@ -106,23 +106,6 @@ public class CalcScanner {
 			return new Token(TokenType.END, null);
 		}
 		removeWhiteSpace();
-		//windows newline 
-		if(currentChar == '\r'){
-			takeIt();
-			if(currentChar=='\n'){
-				takeIt();
-				return new Token(TokenType.END, null);
-			}
-			else{
-				return new Token(TokenType.ERROR,null);
-			}
-		}
-		//unix newline 
-		if(currentChar == '\n')
-		{
-			takeIt();
-			return new Token(TokenType.END, null);
-		}
 		currentSpelling = new StringBuffer("");
 		TokenType currentTokenType = scanToken();
 		return new Token(currentTokenType, currentSpelling.toString());
